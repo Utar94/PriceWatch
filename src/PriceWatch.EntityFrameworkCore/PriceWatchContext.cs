@@ -9,6 +9,7 @@ public class PriceWatchContext : DbContext
   {
   }
 
+  internal DbSet<PriceHistoryEntity> PriceHistory { get; private set; }
   internal DbSet<ProductEntity> Products { get; private set; }
 
   protected override void OnModelCreating(ModelBuilder modelBuilder)

@@ -53,6 +53,28 @@ internal static class ProductEvents
     }
   }
 
+  public class ProductPriceChangedHandler : INotificationHandler<Product.PriceChanged>
+  {
+    private readonly PriceWatchContext _context;
+
+    public ProductPriceChangedHandler(PriceWatchContext context)
+    {
+      _context = context;
+    }
+
+    public async Task Handle(Product.PriceChanged @event, CancellationToken cancellationToken)
+    {
+      ProductEntity product = await _context.Products
+        .Include(x => x.PriceHistory)
+        .SingleOrDefaultAsync(x => x.AggregateId == @event.AggregateId.Value, cancellationToken)
+        ?? throw new InvalidOperationException($"The product entity 'AggregateId={@event.AggregateId}' could not be found.");
+
+      product.SetPrice(@event);
+
+      await _context.SaveChangesAsync(cancellationToken);
+    }
+  }
+
   public class ProductUnwatchedEventHandler : INotificationHandler<Product.UnwatchedEvent>
   {
     private readonly PriceWatchContext _context;

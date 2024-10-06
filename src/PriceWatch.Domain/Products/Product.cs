@@ -15,7 +15,7 @@ public class Product : AggregateRoot
   public Uri Url => _url ?? throw new InvalidOperationException($"The {nameof(Url)} has not been initialized yet.");
 
   public bool IsBeingWatched { get; private set; }
-  public double? CurrentPrice { get; }
+  public decimal? CurrentPrice { get; private set; }
 
   public Product() : base()
   {
@@ -42,6 +42,18 @@ public class Product : AggregateRoot
     }
   }
 
+  public void SetPrice(decimal newPrice)
+  {
+    if (CurrentPrice != newPrice)
+    {
+      Raise(new PriceChanged(newPrice));
+    }
+  }
+  protected virtual void Apply(PriceChanged @event)
+  {
+    CurrentPrice = @event.Price;
+  }
+
   public void Unwatch()
   {
     if (IsBeingWatched)
@@ -66,6 +78,8 @@ public class Product : AggregateRoot
     IsBeingWatched = true;
   }
 
+  public override string ToString() => $"{DisplayName} | {base.ToString()}";
+
   public class CreatedEvent : DomainEvent, INotification
   {
     public DisplayName DisplayName { get; }
@@ -87,6 +101,16 @@ public class Product : AggregateRoot
     public DeletedEvent()
     {
       IsDeleted = true;
+    }
+  }
+
+  public class PriceChanged : DomainEvent, INotification
+  {
+    public decimal Price { get; }
+
+    public PriceChanged(decimal price)
+    {
+      Price = price;
     }
   }
 
