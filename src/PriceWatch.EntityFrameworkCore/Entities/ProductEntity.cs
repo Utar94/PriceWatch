@@ -13,7 +13,9 @@ internal class ProductEntity : AggregateEntity
   public string Url { get; } = string.Empty;
 
   public bool IsBeingWatched { get; private set; }
-  public decimal? CurrentPrice { get; }
+  public decimal? CurrentPrice { get; private set; }
+
+  public List<PriceHistoryEntity> PriceHistory { get; private set; } = [];
 
   public ProductEntity(Product.CreatedEvent @event) : base(@event)
   {
@@ -27,6 +29,15 @@ internal class ProductEntity : AggregateEntity
 
   private ProductEntity() : base()
   {
+  }
+
+  public void SetPrice(Product.PriceChanged @event)
+  {
+    Update(@event);
+
+    CurrentPrice = @event.Price;
+
+    PriceHistory.Add(new PriceHistoryEntity(this, @event));
   }
 
   public void Unwatch(Product.UnwatchedEvent @event)

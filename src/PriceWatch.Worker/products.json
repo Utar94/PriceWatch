@@ -5,5 +5,47 @@
     "supplier": "LongMcQuade",
     "url": "https://www.long-mcquade.com/16419/Drums/Cymbals/Sabian/AA-17-Inch-Holy-China-Traditional-Finish.htm",
     "watch": true
+  },
+  {
+    "id": "231ff4a3-46c9-441f-a21f-d99a01a9ee48",
+    "name": "Sabian HHX 22\" Complex Thin Ride",
+    "supplier": "LongMcQuade",
+    "url": "https://www.long-mcquade.com/166144/Drums/Cymbals/Sabian/HHX-22-Complex-Thin-Ride.htm",
+    "watch": true
+  },
+  {
+    "id": "b2c13413-bc7b-4e59-ac89-0d6c1471e765",
+    "name": "Sabian AAX 10\" Aero Splash",
+    "supplier": "LongMcQuade",
+    "url": "https://www.long-mcquade.com/80622/Drums/Cymbals/Sabian/10-AAX-Aero-Splash.htm",
+    "watch": true
+  },
+  {
+    "id": "ebad3021-4917-4545-afb8-7b4ec9feefc0",
+    "name": "Sabian AAX 12\" Aero Splash",
+    "supplier": "LongMcQuade",
+    "url": "https://www.long-mcquade.com/80626/Drums/Cymbals/Sabian/12-AAX-Aero-Splash.htm",
+    "watch": true
+  },
+  {
+    "id": "6be57c42-f63a-44d8-89f8-69299e00af2c",
+    "name": "Sabian HHX 10\" Complex Aero Splash",
+    "supplier": "LongMcQuade",
+    "url": "https://www.long-mcquade.com/300081/Drums/Cymbals/Sabian/HHX-Complex-Aero-Splash-Cymbal-10.htm",
+    "watch": true
+  },
+  {
+    "id": "14909b6e-2d91-4b85-80f6-6310b24dbc2a",
+    "name": "Sabian AA 10\" Mini Holy China",
+    "supplier": "LongMcQuade",
+    "url": "https://www.long-mcquade.com/80610/Drums/Cymbals/Sabian/10-AA-Mini-Holy-China.htm",
+    "watch": true
+  },
+  {
+    "id": "6df94036-0ad8-4e65-98de-81c5a7924a76",
+    "name": "Meinl Classics Custom Dark Cymbal Set (14''H,16''C,20''R+18''C)",
+    "supplier": "LongMcQuade",
+    "url": "https://www.long-mcquade.com/143068/Drums/Cymbals/Meinl/Classics-Custom-Dark-Cymbal-Set-14-H-16-C-20-R-18-C.htm",
+    "watch": true
   }
 ]
