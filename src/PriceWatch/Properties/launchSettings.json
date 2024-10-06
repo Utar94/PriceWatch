@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "PriceWatch": {
+      "commandName": "Project"
+    },
+    "Container (Dockerfile)": {
+      "commandName": "Docker"
+    }
+  }
+}

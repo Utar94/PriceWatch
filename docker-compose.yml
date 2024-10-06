@@ -1,0 +1,11 @@
+name: pricewatch
+services:
+  pricewatch_mssql:
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    container_name: PriceWatch_mssql
+    restart: unless-stopped
+    environment:
+      ACCEPT_EULA: 'Y'
+      SA_PASSWORD: n9AxrDZqLwCBmpPV
+    ports:
+      - 1443:1433
