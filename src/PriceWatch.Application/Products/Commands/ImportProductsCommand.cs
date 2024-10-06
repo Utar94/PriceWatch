@@ -45,6 +45,15 @@ internal class ImportProductsCommandHandler : IRequestHandler<ImportProductsComm
         product = new(displayName, extractedProduct.Supplier, url, extractedProduct.Id);
         products[extractedProduct.Id] = product;
       }
+
+      if (extractedProduct.IsBeingWatched)
+      {
+        product.Watch();
+      }
+      else
+      {
+        product.Unwatch();
+      }
     }
 
     await _productRepository.SaveAsync(products.Values, cancellationToken);
@@ -62,7 +71,7 @@ internal record ProductData
   [JsonPropertyName("id")]
   public Guid Id { get; set; }
 
-  [JsonPropertyName("displayName")]
+  [JsonPropertyName("name")]
   public string DisplayName { get; set; } = string.Empty;
 
   [JsonPropertyName("supplier")]
@@ -70,4 +79,7 @@ internal record ProductData
 
   [JsonPropertyName("url")]
   public string Url { get; set; } = string.Empty;
+
+  [JsonPropertyName("watch")]
+  public bool IsBeingWatched { get; set; }
 }
